@@ -18,13 +18,13 @@
 }
 
 .buttonOutput {
+  margin: 2px 0 8px;
   grid-column-start: 1;
   grid-column-end: 5;
   border: 1px solid #000;
   border-radius: 10px;
   background-color: #d6e6fc;
-  font-size: 1.5em;
-  margin: 2px 0 8px;
+  user-select: none;
 }
 
 .buttonAC {
