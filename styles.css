@@ -1,0 +1,41 @@
+.io-wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 75px);
+  grid-auto-rows: 75px;
+}
+
+.io-wrapper button {
+  border: 1px solid #000;
+  border-radius: 10px;
+  background-color: #f0f0f0;
+  font-size: 1.5em;
+  margin: 2px;
+  cursor: pointer;
+}
+
+.io-wrapper button:hover {
+  background-color: #e0e0e0;
+}
+
+.buttonOutput {
+  grid-column-start: 1;
+  grid-column-end: 5;
+  border: 1px solid #000;
+  border-radius: 10px;
+  background-color: #d6e6fc;
+  font-size: 1.5em;
+  margin: 2px 0 8px;
+}
+
+.buttonAC {
+  grid-column-start: 4;
+}
+
+.calculator {
+  border: 2px solid #000;
+  border-radius: 10px;
+  width: max-content;
+  margin: 10px auto;
+  padding: 10px;
+}
+
