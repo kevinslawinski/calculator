@@ -14,6 +14,7 @@ function setDefaultState() {
   input = '';
   result = '';
   output.innerHTML = input;
+  document.querySelector('.dot').disabled = false;
 }
 
 buttons.forEach((button) => {
@@ -22,14 +23,9 @@ buttons.forEach((button) => {
       button.classList.contains('number') ||
       button.classList.contains('dot')
     ) {
-      if (operator === '') {
-        first += button.innerHTML;
-        output.innerHTML = first;
-      } else {
-        second += button.innerHTML;
-        output.innerHTML = second;
-      }
+      updateValue(button);
     } else if (button.classList.contains('operator')) {
+      document.querySelector('.dot').disabled = false;
       if (armedAndReady()) {
         result = calculate(first, second, operator);
         output.innerHTML = result;
@@ -44,6 +40,14 @@ buttons.forEach((button) => {
     }
   });
 });
+
+function updateValue(button) {
+  operator === '' ? first += button.innerHTML : second += button.innerHTML;
+  output.innerHTML = operator === '' ? first : second;
+  if(button.classList.contains('dot')) {
+    document.querySelector('.dot').disabled = true;
+  }
+}
 
 function armedAndReady() {
   if (first === '' || second === '' || operator === '') {

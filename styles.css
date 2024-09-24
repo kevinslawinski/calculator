@@ -13,7 +13,7 @@
   cursor: pointer;
 }
 
-.io-wrapper button:hover {
+.io-wrapper button:hover:not(:disabled) {
   background-color: #e0e0e0;
 }
 
