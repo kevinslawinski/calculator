@@ -64,15 +64,18 @@ function armedAndReady() {
 }
 
 function calculate(first, second, operator) {
+  num1 = parseFloat(first);
+  num2 = parseFloat(second);
+  const rounded = (num) => Math.round(num * 100) / 100;
   switch (operator) {
     case '+':
-      return Math.round((parseFloat(first) + parseFloat(second)) * 100) / 100;
+      return rounded(num1 + num2);
     case '-':
-      return Math.round((parseFloat(first) - parseFloat(second)) * 100) / 100;
+      return rounded(num1 - num2);
     case '*':
-      return Math.round(parseFloat(first) * parseFloat(second) * 100) / 100;
+      return rounded(num1 * num2);
     case '/':
-      return Math.round((parseFloat(first) / parseFloat(second)) * 100) / 100;
+      return rounded(num1 / num2);
   }
 }
 
