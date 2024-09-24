@@ -17,7 +17,7 @@
   background-color: #e0e0e0;
 }
 
-.buttonOutput {
+.outputBox {
   margin: 2px 0 8px;
   grid-column-start: 1;
   grid-column-end: 5;
@@ -27,7 +27,7 @@
   user-select: none;
 }
 
-.buttonAC {
+.clear {
   grid-column-start: 4;
 }
 
