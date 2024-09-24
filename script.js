@@ -1,5 +1,5 @@
-let first = '0';
-let second = '0';
+let first = '';
+let second = '';
 let operator = '';
 let input = '';
 
@@ -7,8 +7,8 @@ const output = document.querySelector('.output');
 const buttons = document.querySelectorAll('button');
 
 function setDefaultState() {
-  first = '0';
-  second = '0';
+  first = '';
+  second = '';
   operator = '';
   input = '';
   output.innerHTML = input;
@@ -17,16 +17,21 @@ function setDefaultState() {
 buttons.forEach((button) => {
   button.addEventListener('click', () => {
     if (button.classList.contains('number')) {
-      input += button.innerHTML;
       if (operator === '') {
-        first = Number(input);
+        first += button.innerHTML;
+        output.innerHTML = first;
       } else {
-        second = Number(input);
+        second += button.innerHTML;
+        output.innerHTML = second;
       }
-      output.innerHTML = input;
     } else if (button.classList.contains('dot')) {
-      input += button.innerHTML;
-      output.innerHTML = input;
+      if (operator === '') {
+        first += button.innerHTML;
+        output.innerHTML = first;
+      } else {
+        second += button.innerHTML;
+        output.innerHTML = second;
+      }
     } else if (button.classList.contains('operator')) {
       operator = button.innerHTML;
     } else if (button.classList.contains('equal')) {
@@ -40,7 +45,7 @@ buttons.forEach((button) => {
 });
 
 function armedAndReady() {
-  if (operator === '' || second === '0') {
+  if (operator === '' || second === '') {
     return false;
   }
   return true;
