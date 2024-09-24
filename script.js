@@ -16,15 +16,10 @@ function setDefaultState() {
 
 buttons.forEach((button) => {
   button.addEventListener('click', () => {
-    if (button.classList.contains('number')) {
-      if (operator === '') {
-        first += button.innerHTML;
-        output.innerHTML = first;
-      } else {
-        second += button.innerHTML;
-        output.innerHTML = second;
-      }
-    } else if (button.classList.contains('dot')) {
+    if (
+      button.classList.contains('number') ||
+      button.classList.contains('dot')
+    ) {
       if (operator === '') {
         first += button.innerHTML;
         output.innerHTML = first;
