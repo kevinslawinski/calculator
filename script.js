@@ -49,6 +49,11 @@ function armedAndReady() {
   if (first === '' || second === '' || operator === '') {
     return false;
   }
+  if (operator === '/' && second === '0') {
+    alert('You cannot divide by zero');
+    setDefaultState();
+    return false;
+  }
   result = calculate(first, second, operator);
   output.innerHTML = result;
   return true;
