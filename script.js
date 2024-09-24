@@ -38,10 +38,7 @@ buttons.forEach((button) => {
       }
       operator = button.innerHTML;
     } else if (button.classList.contains('equal')) {
-      if (armedAndReady()) {
-        result = calculate(first, second, operator);
-        output.innerHTML = result;
-      }
+      armedAndReady();
     } else if (button.classList.contains('clear')) {
       setDefaultState();
     }
@@ -52,35 +49,21 @@ function armedAndReady() {
   if (first === '' || second === '' || operator === '') {
     return false;
   }
+  result = calculate(first, second, operator);
+  output.innerHTML = result;
   return true;
-}
-
-function add(first, second) {
-  return Math.round((parseFloat(first) + parseFloat(second)) * 100) / 100;
-}
-
-function subtract(first, second) {
-  return Math.round((parseFloat(first) - parseFloat(second)) * 100) / 100;
-}
-
-function multiply(first, second) {
-  return Math.round(parseFloat(first) * parseFloat(second) * 100) / 100;
-}
-
-function divide(first, second) {
-  return Math.round((parseFloat(first) / parseFloat(second)) * 100) / 100;
 }
 
 function calculate(first, second, operator) {
   switch (operator) {
     case '+':
-      return add(first, second);
+      return Math.round((parseFloat(first) + parseFloat(second)) * 100) / 100;
     case '-':
-      return subtract(first, second);
+      return Math.round((parseFloat(first) - parseFloat(second)) * 100) / 100;
     case '*':
-      return multiply(first, second);
+      return Math.round(parseFloat(first) * parseFloat(second) * 100) / 100;
     case '/':
-      return divide(first, second);
+      return Math.round((parseFloat(first) / parseFloat(second)) * 100) / 100;
   }
 }
 
