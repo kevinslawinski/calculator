@@ -7,14 +7,14 @@
 .io-wrapper button {
   border: 1px solid #000;
   border-radius: 10px;
-  background-color: #f0f0f0;
+  background-color: #E2E2F3;
   font-size: 1.5em;
   margin: 2px;
   cursor: pointer;
 }
 
 .io-wrapper button:hover:not(:disabled) {
-  background-color: #e0e0e0;
+  background-color: #D4D4ED;
 }
 
 .outputBox {
@@ -23,7 +23,7 @@
   grid-column-end: 5;
   border: 1px solid #000;
   border-radius: 10px;
-  background-color: #d6e6fc;
+  background-color: #F1F1F9;
   user-select: none;
   p {
     margin: 10px;
@@ -39,7 +39,7 @@
 
 .calculator {
   border: 2px solid #000;
-  background-color: #f0f0f0;
+  background-color: #62466B;
   border-radius: 10px;
   width: max-content;
   margin: 10px auto;
@@ -52,5 +52,5 @@ h1 {
 
 body {
   font-family: 'Arial', sans-serif;
-  background-color: #9462a3;
+  background-color: #3C9089;
 }
