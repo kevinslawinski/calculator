@@ -30,10 +30,16 @@ buttons.forEach((button) => {
         output.innerHTML = second;
       }
     } else if (button.classList.contains('operator')) {
+      if (armedAndReady()) {
+        result = calculate(first, second, operator);
+        output.innerHTML = result;
+        first = result;
+        second = '';
+      }
       operator = button.innerHTML;
     } else if (button.classList.contains('equal')) {
       if (armedAndReady()) {
-        result = operate(first, second, operator);
+        result = calculate(first, second, operator);
         output.innerHTML = result;
       }
     } else if (button.classList.contains('clear')) {
@@ -43,7 +49,7 @@ buttons.forEach((button) => {
 });
 
 function armedAndReady() {
-  if (operator === '' || second === '') {
+  if (first === '' || second === '' || operator === '') {
     return false;
   }
   return true;
@@ -65,7 +71,7 @@ function divide(first, second) {
   return Math.round((parseFloat(first) / parseFloat(second)) * 100) / 100;
 }
 
-function operate(first, second, operator) {
+function calculate(first, second, operator) {
   switch (operator) {
     case '+':
       return add(first, second);
