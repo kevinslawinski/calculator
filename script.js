@@ -10,7 +10,7 @@ function setDefaultState() {
   first = '0';
   second = '0';
   operator = '';
-  input = "Hi I'm a calculator";
+  input = '';
   output.innerHTML = input;
 }
 
@@ -18,6 +18,11 @@ buttons.forEach((button) => {
   button.addEventListener('click', () => {
     if (button.classList.contains('number')) {
       input += button.innerHTML;
+      if (operator === '') {
+        first = Number(input);
+      } else {
+        second = Number(input);
+      }
       output.innerHTML = input;
     } else if (button.classList.contains('dot')) {
       input += button.innerHTML;
@@ -25,12 +30,21 @@ buttons.forEach((button) => {
     } else if (button.classList.contains('operator')) {
       operator = button.innerHTML;
     } else if (button.classList.contains('equal')) {
-      operate(first, second, operator);
+      if (armedAndReady()) {
+        output.innerHTML = operate(first, second, operator);
+      }
     } else if (button.classList.contains('clear')) {
       setDefaultState();
     }
   });
 });
+
+function armedAndReady() {
+  if (operator === '' || second === '0') {
+    return false;
+  }
+  return true;
+}
 
 function add(first, second) {
   return first + second;
