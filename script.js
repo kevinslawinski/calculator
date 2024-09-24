@@ -54,7 +54,7 @@ function armedAndReady() {
     return false;
   }
   if (operator === '/' && second === '0') {
-    alert('You cannot divide by zero');
+    alert("Woah!! Looks like you're trying to divide by zero. That's a big no-no in math land. You're better off not knowing the answer to that one.");
     setDefaultState();
     return false;
   }
