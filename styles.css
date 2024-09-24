@@ -25,6 +25,12 @@
   border-radius: 10px;
   background-color: #d6e6fc;
   user-select: none;
+  p {
+    margin: 10px;
+    padding-top: 20px;
+    text-align: right;
+    font-size: 1.5em;
+  }
 }
 
 .clear {

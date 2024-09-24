@@ -42,9 +42,9 @@ buttons.forEach((button) => {
 });
 
 function updateValue(button) {
-  operator === '' ? first += button.innerHTML : second += button.innerHTML;
+  operator === '' ? (first += button.innerHTML) : (second += button.innerHTML);
   output.innerHTML = operator === '' ? first : second;
-  if(button.classList.contains('dot')) {
+  if (button.classList.contains('dot')) {
     document.querySelector('.dot').disabled = true;
   }
 }
