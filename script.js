@@ -1,7 +1,8 @@
-let first = '';
-let second = '';
-let operator = '';
-let input = '';
+let first;
+let second;
+let operator;
+let input;
+let result;
 
 const output = document.querySelector('.output');
 const buttons = document.querySelectorAll('button');
@@ -11,6 +12,7 @@ function setDefaultState() {
   second = '';
   operator = '';
   input = '';
+  result = '';
   output.innerHTML = input;
 }
 
@@ -31,7 +33,8 @@ buttons.forEach((button) => {
       operator = button.innerHTML;
     } else if (button.classList.contains('equal')) {
       if (armedAndReady()) {
-        output.innerHTML = operate(first, second, operator);
+        result = operate(first, second, operator);
+        output.innerHTML = result;
       }
     } else if (button.classList.contains('clear')) {
       setDefaultState();
@@ -47,19 +50,19 @@ function armedAndReady() {
 }
 
 function add(first, second) {
-  return first + second;
+  return Math.round((parseFloat(first) + parseFloat(second)) * 100) / 100;
 }
 
 function subtract(first, second) {
-  return first - second;
+  return Math.round((parseFloat(first) - parseFloat(second)) * 100) / 100;
 }
 
 function multiply(first, second) {
-  return first * second;
+  return Math.round(parseFloat(first) * parseFloat(second) * 100) / 100;
 }
 
 function divide(first, second) {
-  return first / second;
+  return Math.round((parseFloat(first) / parseFloat(second)) * 100) / 100;
 }
 
 function operate(first, second, operator) {
